@@ -1,4 +1,5 @@
-$bb: #000000;
-div {
-    color: $bb;
-}
+@import "base/variables";
+@import "base/base";
+
+@import "component/header";
+@import "component/button";

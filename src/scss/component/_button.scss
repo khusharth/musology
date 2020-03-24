@@ -1,0 +1,24 @@
+.btn {
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    font-size: 1.4rem;
+    padding: 1.5rem 2rem;
+    border-radius: 5px;
+    background-image: linear-gradient(90deg, $color-primary, $color-secondary);
+    color: $color-white;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 1rem 2rem rgba($color-black, .2); /*X Y Blur color*/
+        // background-image: linear-gradient(270deg, $color-primary, $color-secondary);
+
+        &:active {
+            transform: scale(1);
+            box-shadow: 0 0.5rem 1rem rgba($color-black, .2); /*X Y Blur color*/
+        }
+    }
+}

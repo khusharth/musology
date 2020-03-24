@@ -9,7 +9,8 @@ module.exports = {
         filename: 'js/bundle.js'
     },
     devServer: {
-        contentBase: './dist'
+        contentBase: './dist',
+        host: '0.0.0.0'
     },
     plugins: [
         new HtmlWebpackPlugin ({
@@ -36,6 +37,17 @@ module.exports = {
                 "css-loader",
                 "sass-loader"
                 ]
+            },
+            {
+                test: /\.(png|jp(e*)g|svg)$/,  
+                use: [{
+                    loader: 'file-loader',
+                    options: { 
+                        name: '[name].[ext]',
+                        outputPath: 'img/',
+                        publicPath: 'img/'
+                    } 
+                }]
             }
         ]
     }
