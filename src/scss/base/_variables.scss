@@ -11,5 +11,8 @@ $color-black: #000;
 
 // $color-bg-light: #cff4d2;
 $color-bg-light: rgb(244, 249, 243);
+$color-bg-light-dark: darken(rgb(244, 249, 243), 6%);
 // $color-bg-light: rgb(44, 44, 44);
-$forkify: rgb(244, 249, 243);
+
+$color-grey-light: #F5F5F5;
+$color-grey-dark: #A4A4A4;
