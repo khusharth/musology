@@ -69,7 +69,7 @@
 
 .content {
     margin-top: .2rem;
-    // height: 88vh;
+    height: auto;
     display: flex;
 }
 
@@ -175,12 +175,17 @@
 
 .music-box {
     display: flex;
+    padding: 1rem;
+
+    @media only screen and (max-width: 600px) {
+        flex-direction: column;    
+    } 
 }
 
 .music {
     display: flex;
     flex: 0 0 50%;
-    padding: 1rem;
+    padding: 0rem 1rem;
 
     &__details {
        padding: 2rem 1rem;
@@ -233,6 +238,27 @@
 
 .lyrics {
     flex: 1;
+    padding: 1rem;
+
+    &__heading {
+        font-size: 2rem;
+        letter-spacing: 1px;
+        text-align: center;
+        font-weight: 600;
+        color: $color-secondary;
+    }
+
+    &__card {
+        margin-top: 0.5rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        font-size: 1.4rem;
+        background-color: $color-white;
+        height: 35rem;
+        width: 100%;
+        box-shadow: 0 0.5rem 1rem rgba($color-black, .2);
+        overflow: scroll;
+    }
 }
 
 
