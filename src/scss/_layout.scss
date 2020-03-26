@@ -1,5 +1,4 @@
 .header {
-    // border: 1px solid #000;
     font-size: 1.6rem;
     min-height: 12vh;
     padding: 4.5rem 6rem;
@@ -55,7 +54,6 @@
 .content {
     margin-top: .2rem;
     height: 88vh;
-    background-color: rgb(104, 104, 104);
     display: flex;
 }
 
@@ -117,6 +115,37 @@
     &__author {
         font-size: 1.3rem;
         color: $color-grey-dark;
+    }
+}
+
+.pagination {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+
+    &__btn {
+        outline: none;
+        border: none;
+        text-decoration: none;
+        color: $color-white;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        font-size: 1.5rem;
+        border-radius: 2px;
+        background-image: linear-gradient(90deg, lighten(#7BE495, 5%) ,lighten(#329D9C, 10%));
+        // background-image: linear-gradient(90deg,#7BE495, #329D9C);
+        transition: all .2s;
+
+        &:hover {
+            transform: scale(1.1);
+            box-shadow: 0 1rem 2rem rgba($color-black, .2); /*X Y Blur color*/
+            // background-image: linear-gradient(270deg, $color-primary, $color-secondary);
+    
+            &:active {
+                transform: scale(1);
+                box-shadow: 0 0.5rem 1rem rgba($color-black, .2); /*X Y Blur color*/
+            }
+        } 
     }
 }
 
