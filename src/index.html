@@ -16,13 +16,18 @@
         <form class="search">
             <input type="text" class="search__input" placeholder="Search over 56,000,000 tracks...">
             <button class="btn btn_search">
-                <img class="search__icon" src="img/search.svg" alt="search">
+                <svg class="search__icon">
+                    <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+                </svg>
             </button>
         </form>
 
         <div class="likes">
-            <button class="btn">
-                Likes
+            <button class="btn likes__btn">
+                <svg class="search__icon">
+                    <use xlink:href="img/sprite.svg#icon-heart"></use>
+                </svg>
+                <span>Likes</span>
             </button>
             <!-- <div class="likes__field">
                 <svg class="likes__icon">
@@ -149,8 +154,40 @@
                 </button>
             </div>
         </div>
-        <div class="music">
-            
+
+        <div class="music-container">
+
+            <div class="music-box">
+
+                <div class="music">
+                    <figure class="music__fig">
+                        <img src="img/big.jpg" alt="ALBUM">
+                    </figure>
+                    <div class="music__details">
+                        <div class="music__title">Sick Boy</div>
+                        <div class="music__artist">by The chainsmokers</div>
+                        <div class="music__sub-details">
+                            <div class="music__duration">1:50 min</div>
+                            <div class="music__like">
+                                <button class="btn music__btn">
+                                    <svg class="music__heart">
+                                        <use xlink:href="img/sprite.svg#icon-heart-outlined"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lyrics">
+                    Lyrics
+                </div>
+
+            </div>
+
+            <div class="audio">
+
+            </div>
         </div>
     </main>
     

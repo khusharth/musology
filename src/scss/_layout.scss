@@ -14,51 +14,67 @@
     }
 
     @media only screen and (max-width: 600px) {
-        padding: 4.5rem 3rem;} 
+        padding: 4.5rem 3rem;}     
+}
 
-    .search {
-        position: relative;
-        flex: 0 0 40%;
+.search {
+    position: relative;
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // @media only screen and (max-width: 600px) {
+    //     display: none;
+    // } 
+    
+    &__input {
+        font-size: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 5px;
+        border: none;
+        background-color: #fff;
+        border-bottom: 3px solid transparent;
+        flex: 0 0 80%;
+        color: $color-text;
+        outline: none;
+        margin-right: 1rem;
+        transition: all .3s;
+
+        &:focus {
+            box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        }   
+    }
+
+    &__icon {
+        fill: $color-white;
+        height: 1.8em;
+        width: 1.8em;
+    }
+}
+
+.likes {
+    display: flex;
+    
+    &__btn {
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
 
-        // @media only screen and (max-width: 600px) {
-        //     display: none;
-        // } 
-        
-        &__input {
-            font-size: inherit;
-            padding: 1.5rem 2rem;
-            border-radius: 5px;
-            border: none;
-            background-color: #fff;
-            border-bottom: 3px solid transparent;
-            flex: 0 0 80%;
-            color: $color-text;
-            outline: none;
-            margin-right: 1rem;
-            transition: all .3s;
-    
-            &:focus {
-                box-shadow: 0 1rem 2rem rgba($color-black, .2);
-            }   
-        }
-    
-        &__icon {
-            height: 1.6rem;
+        span {
+            margin-left: 0.5rem;
         }
     }
 }
 
 .content {
     margin-top: .2rem;
-    height: 88vh;
+    // height: 88vh;
     display: flex;
 }
 
 .results {
-    height: 100%;
+    // mi-height: 100%;
     flex: 0 0 25%;
     background-color: #fff;
     padding-top: 1rem;
@@ -123,6 +139,9 @@
     display: flex;
     justify-content: space-around;
 
+    @media only screen and (max-width: 600px) {
+        padding: 0.8rem 0; } 
+
     &__btn {
         outline: none;
         border: none;
@@ -149,11 +168,71 @@
     }
 }
 
-.music {
-    height: 100%;
+.music-container {
     flex-grow: 1;
     background-color: $color-bg-light;
 }
 
+.music-box {
+    display: flex;
+}
+
+.music {
+    display: flex;
+    flex: 0 0 50%;
+    padding: 1rem;
+
+    &__details {
+       padding: 2rem 1rem;
+       color: $color-grey-dark-2;
+    }
+
+    &__fig {
+        height: 20rem;
+        width: 20rem;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__title {
+        color: $color-secondary;
+        font-weight: 600;
+        font-size: 4rem;
+    }
+
+    &__artist {
+        font-size: 2rem;
+    }
+
+    &__sub-details {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__duration {
+        font-size: 1.8rem;
+    }
+
+    &__btn {
+        display: flex;
+        padding: 0.5rem 0.8rem;
+    }
+
+    &__heart {
+        fill: $color-white;
+        height: 3rem;
+        width: 3rem;
+    }
+
+}
+
+.lyrics {
+    flex: 1;
+}
 
 
