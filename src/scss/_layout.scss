@@ -1,6 +1,7 @@
 .header {
     font-size: 1.6rem;
     min-height: 12vh;
+    width: 100%;
     padding: 4.5rem 6rem;
     height: 8rem;
     background-color: $color-bg-light;
@@ -24,9 +25,9 @@
     justify-content: center;
     align-items: center;
 
-    // @media only screen and (max-width: 600px) {
-    //     display: none;
-    // } 
+    @media only screen and (max-width: 600px) {
+        display: none;
+    } 
     
     &__input {
         font-size: inherit;
@@ -69,7 +70,6 @@
 
 .content {
     margin-top: .2rem;
-    height: auto;
     display: flex;
 }
 
@@ -171,6 +171,9 @@
 .music-container {
     flex-grow: 1;
     background-color: $color-bg-light;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .music-box {
@@ -178,17 +181,24 @@
     padding: 1rem;
 
     @media only screen and (max-width: 600px) {
-        flex-direction: column;    
+        flex-direction: column;   
     } 
 }
 
 .music {
-    display: flex;
     flex: 0 0 50%;
     padding: 0rem 1rem;
 
+    &__data {
+        display: flex;
+    }
+
+    @media only screen and (max-width: 600px) { 
+        flex: 0 0 35%; 
+    } 
+
     &__details {
-       padding: 2rem 1rem;
+       padding: 1rem 1rem;
        color: $color-grey-dark-2;
     }
 
@@ -213,14 +223,19 @@
     }
 
     &__sub-details {
-        margin-top: 1rem;
+        color: $color-grey-dark-2;
+        width: 100%;
+        margin-top: 2rem;
+        padding: 1rem;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
+        border: 3px solid #fff;
+        border-radius: 1rem;
     }
 
     &__duration {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     &__btn {
@@ -258,6 +273,168 @@
         width: 100%;
         box-shadow: 0 0.5rem 1rem rgba($color-black, .2);
         overflow: scroll;
+    }
+}
+
+.audio {
+    height: 14rem;
+    width: 100%;
+    // background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    &__popup {
+        background-image: linear-gradient(90deg, lighten(#7BE495, 0%) ,lighten(#329D9C, 5%));
+        border-radius: 5rem 5rem 0 0;
+        padding: 0.5rem 7rem;
+        padding-left: 20rem;
+        position: absolute;
+        top: 0;
+        left: 2rem;
+        width: calc(100% - 4rem);
+        opacity: 0;
+        transform: translateY(0%);
+        transition: all .3s ease-in;
+        z-index: 0;
+        @media only screen and (max-width: 600px) { 
+            padding-left: 14rem;
+            padding-right: 4.5rem;
+         }
+    }
+
+    &__progress-container {
+        background: $color-white;
+        border-radius: 0.5rem;
+        padding: 0.1rem;
+        cursor: pointer;
+        margin: 1rem 0;
+        height: 0.8rem;
+        width: 100%;
+    }
+
+    &__progress {
+        background-color: $color-secondary;
+        border-radius: 0.5rem;
+        height: 100%;
+        width: 0%;
+        transition: width 0.1s linear;
+    }
+
+
+    &__box {
+        border-radius: 1rem 1rem 0 0;
+        width: 100%;
+        height: 56%;
+        background-image: linear-gradient(90deg, lighten(#7BE495, 5%) ,lighten(#329D9C, 10%));
+        display: flex;
+        padding: 1rem;
+        position: relative;
+    }
+
+    &__img-container{
+        position: relative;
+        width: 11rem;
+        height: 11rem;
+
+        img {
+            border-radius: 50%;
+            object-fit: cover;
+            height: 100%;
+            width: 11rem;
+            position: absolute;
+            top: -7rem;
+            left: 4rem;
+
+            animation: rotate 3s linear infinite;
+
+            animation-play-state: paused;
+
+            @media only screen and (max-width: 600px) { 
+               left: 0.5rem;
+            } 
+        }
+    }
+
+    &__box.play &__img-container img {
+        animation-play-state: running;
+    } 
+
+    &__box.play &__popup {
+        opacity: 1;
+        transform: translateY(-100%);
+    }
+
+    &__container {
+        width: 100%;
+        margin-left: 6rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 20rem;
+
+        @media only screen and (max-width: 600px) { 
+            margin-left: 6rem;
+            padding-right: 1rem;
+          }
+    }
+
+    &__details {
+        font-weight: 600;
+        color: $color-white;
+    }
+
+    &__title {
+        font-size: 1.8rem;
+    }
+
+    &__artist {
+        font-size: 1.4rem;
+    }
+
+    &__nav {
+        flex: 0 0 30%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media only screen and (max-width: 600px) { 
+            margin-left: 1rem;
+            padding-right: 5rem;
+            flex: 0 0 40%;
+          }
+    }
+
+    &__btn {
+        height: 3rem;
+        width: 4rem;
+        margin-right: 0.5rem;
+        padding: 0.5rem;
+
+        &:nth-child(2) {
+            height: 3.5rem;
+            width: 4.5rem;
+        }
+    }
+
+    &__svg {
+        fill: $color-white;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
 

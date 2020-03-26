@@ -160,24 +160,29 @@
             <div class="music-box">
 
                 <div class="music">
-                    <figure class="music__fig">
-                        <img src="img/big.jpg" alt="ALBUM">
-                    </figure>
-                    <div class="music__details">
-                        <div class="music__title">Sick Boy</div>
-                        <div class="music__artist">by The chainsmokers</div>
-                        <div class="music__sub-details">
-                            <div class="music__duration">1:50 min</div>
-                            <div class="music__like">
-                                <button class="btn music__btn">
-                                    <svg class="music__heart">
-                                        <use xlink:href="img/sprite.svg#icon-heart-outlined"></use>
-                                    </svg>
-                                </button>
-                            </div>
+                    <div class="music__data">
+                        <figure class="music__fig">
+                            <img src="img/big.jpg" alt="ALBUM">
+                        </figure>
+                        <div class="music__details">
+                            <div class="music__title">Sick Boy</div>
+                            <div class="music__artist">by The chainsmokers</div>
                         </div>
                     </div>
+
+                    <div class="music__sub-details">
+                        <div class="music__duration">Duration:&nbsp;&nbsp;1:50 min</div>
+                        <div class="music__like">
+                            <button class="btn music__btn">
+                                <svg class="music__heart">
+                                    <use xlink:href="img/sprite.svg#icon-heart-outlined"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
+                
 
                 <div class="lyrics">
                     <div class="lyrics__heading">Lyrics</div>
@@ -189,7 +194,46 @@
             </div>
 
             <div class="audio">
+                <div class="audio__box">
 
+                    <div class="audio__popup">
+
+                        <div class="audio__progress-container">
+                            <div class="audio__progress"></div>
+                        </div>
+                    </div>
+
+                    <audio src="" id="audio"></audio>
+
+                    <div class="audio__img-container">
+                        <img class="audio__img" src="img/big.jpg" alt="Audio Image">
+                    </div>
+
+                    <div class="audio__container">
+                        <div class="audio__details">
+                            <div class="audio__title">Sick boy</div>
+                            <div class="audio__artist">The chainsmokers</div>
+                        </div>
+                        <div class="audio__nav">
+                            <button class="btn audio__btn"> 
+                                <svg class="audio__svg audio__prev">
+                                    <use xlink:href="img/sprite.svg#icon-controller-jump-to-start"></use>
+                                </svg>
+                            </button>
+                            <button class="btn audio__btn"> 
+                                <svg class="audio__svg audio__play">
+                                    <use xlink:href="img/sprite.svg#icon-controller-play"></use>
+                                </svg>
+                            </button>
+                            <button class="btn audio__btn"> 
+                                <svg class="audio__svg audio__next">
+                                    <use xlink:href="img/sprite.svg#icon-controller-next"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
         </div>
     </main>
