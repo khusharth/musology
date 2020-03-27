@@ -1,3 +1,28 @@
+.container {
+    max-width: 140rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2rem 6rem 0.5rem rgba(86, 101, 89, 0.2);
+
+    @media only screen and (max-width: 1000px) {
+        margin: 4vw auto; 
+    } 
+
+    @media only screen and (max-width: 700px) {
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          border-radius: 0; 
+        } 
+
+    @media only screen and (min-width: 1400px) {
+        margin: 4vw auto;
+    }
+}
+
 .header {
     font-size: 1.6rem;
     min-height: 12vh;
@@ -14,7 +39,10 @@
         display: block;
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 700px) {
+        flex-wrap: wrap;
+        align-content: center;
+        height: 14rem;
         padding: 4.5rem 3rem;}     
 }
 
@@ -24,9 +52,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+        
 
-    @media only screen and (max-width: 600px) {
-        display: none;
+    @media only screen and (max-width: 700px) {
+        order: 1;
+        align-self: start;
+        margin: 0 auto;
+        margin-top: 1rem;
     } 
     
     &__input {
@@ -56,7 +88,12 @@
 
 .likes {
     display: flex;
-    
+
+    @media only screen and (max-width: 700px) {
+        justify-content: flex-end;
+        flex: 0 0 50%;
+    } 
+
     &__btn {
         display: flex;
         align-items: center;
@@ -70,7 +107,14 @@
 
 .content {
     margin-top: .2rem;
+    // height: 88vh;
     display: flex;
+    position: relative;
+
+    @media only screen and (max-width: 700px) {
+        // height: 80vh;
+    } 
+
 }
 
 .results {
@@ -79,8 +123,26 @@
     background-color: #fff;
     padding-top: 1rem;
 
+    @media only screen and (max-width: 700px) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9999;
+        transform: translate(100%);
+        overflow-y: hidden;
+    } 
+
+    &.transform {
+        transform: translate(0%);
+    }
+
     &__list {
         list-style: none;
+        @media only screen and (max-width: 700px) {
+            height: 80%;
+        } 
     }
 
     &__link {
@@ -97,6 +159,11 @@
             background-color: $color-bg-light;
             // background-color: $color-grey-light;
             transition: all .2s;
+
+            @media only screen and (max-width: 700px) {
+                padding: 1rem 2rem;
+                margin: 5% 1.5rem;
+            } 
         }
 
         &:hover {
@@ -134,12 +201,13 @@
     }
 }
 
+
 .pagination {
     padding: 2rem 0;
     display: flex;
     justify-content: space-around;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 700px) {
         padding: 0.8rem 0; } 
 
     &__btn {
@@ -180,7 +248,7 @@
     display: flex;
     padding: 1rem;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 700px) {
         flex-direction: column;   
     } 
 }
@@ -193,7 +261,7 @@
         display: flex;
     }
 
-    @media only screen and (max-width: 600px) { 
+    @media only screen and (max-width: 700px) { 
         flex: 0 0 35%; 
     } 
 
@@ -255,6 +323,11 @@
     flex: 1;
     padding: 1rem;
 
+    @media only screen and (max-width: 700px) {
+        margin-top: 1rem;
+        padding-bottom: 12em;
+    } 
+
     &__heading {
         font-size: 2rem;
         letter-spacing: 1px;
@@ -265,7 +338,7 @@
 
     &__card {
         margin-top: 0.5rem;
-        padding: 1rem;
+        padding: 2rem;
         border-radius: 0.5rem;
         font-size: 1.4rem;
         background-color: $color-white;
@@ -301,7 +374,7 @@
         transform: translateY(0%);
         transition: all .3s ease-in;
         z-index: 0;
-        @media only screen and (max-width: 600px) { 
+        @media only screen and (max-width: 700px) { 
             padding-left: 14rem;
             padding-right: 4.5rem;
          }
@@ -334,12 +407,20 @@
         display: flex;
         padding: 1rem;
         position: relative;
+
+        @media only screen and (max-width: 700px) { 
+            height: 60%;
+          } 
     }
 
     &__img-container{
         position: relative;
         width: 11rem;
         height: 11rem;
+
+        @media only screen and (max-width: 700px) { 
+           top: -90%;
+         } 
 
         img {
             border-radius: 50%;
@@ -354,8 +435,9 @@
 
             animation-play-state: paused;
 
-            @media only screen and (max-width: 600px) { 
+            @media only screen and (max-width: 700px) { 
                left: 0.5rem;
+               top: -1rem;
             } 
         }
     }
@@ -377,9 +459,9 @@
         align-items: center;
         padding-right: 20rem;
 
-        @media only screen and (max-width: 600px) { 
-            margin-left: 6rem;
-            padding-right: 1rem;
+        @media only screen and (max-width: 700px) { 
+            margin-left: 3rem;
+            padding-right: 0rem;
           }
     }
 
@@ -402,9 +484,7 @@
         justify-content: space-between;
         align-items: center;
 
-        @media only screen and (max-width: 600px) { 
-            margin-left: 1rem;
-            padding-right: 5rem;
+        @media only screen and (max-width: 700px) { 
             flex: 0 0 40%;
           }
     }
