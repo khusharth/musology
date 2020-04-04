@@ -1,5 +1,6 @@
 .container {
     max-width: 140rem;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,17 +9,19 @@
     box-shadow: 0 2rem 6rem 0.5rem rgba(86, 101, 89, 0.2);
 
     @media only screen and (max-width: 1000px) {
-        margin: 4vw auto; 
-    } 
+        height: auto;
+        margin: 4vw auto;
+    }
 
     @media only screen and (max-width: 700px) {
-          height: 100%;
-          width: 100%;
-          margin: 0;
-          border-radius: 0; 
-        } 
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
 
     @media only screen and (min-width: 1400px) {
+        height: auto;
         margin: 4vw auto;
     }
 }
@@ -43,7 +46,8 @@
         flex-wrap: wrap;
         align-content: center;
         height: 14rem;
-        padding: 4.5rem 3rem;}     
+        padding: 4.5rem 3rem;
+    }
 }
 
 .search {
@@ -52,15 +56,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-        
 
     @media only screen and (max-width: 700px) {
         order: 1;
         align-self: start;
         margin: 0 auto;
         margin-top: 1rem;
-    } 
-    
+    }
+
     &__input {
         font-size: inherit;
         padding: 1.5rem 2rem;
@@ -72,11 +75,11 @@
         color: $color-text;
         outline: none;
         margin-right: 1rem;
-        transition: all .3s;
+        transition: all 0.3s;
 
         &:focus {
-            box-shadow: 0 1rem 2rem rgba($color-black, .2);
-        }   
+            box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+        }
     }
 
     &__icon {
@@ -92,7 +95,7 @@
     @media only screen and (max-width: 700px) {
         justify-content: flex-end;
         flex: 0 0 50%;
-    } 
+    }
 
     &__btn {
         display: flex;
@@ -106,15 +109,14 @@
 }
 
 .content {
-    margin-top: .2rem;
-    // height: 88vh;
+    margin-top: 0.2rem;
+    height: 100%;
     display: flex;
     position: relative;
 
     @media only screen and (max-width: 700px) {
         // height: 80vh;
-    } 
-
+    }
 }
 
 .results {
@@ -132,7 +134,7 @@
         z-index: 9999;
         transform: translate(100%);
         overflow-y: hidden;
-    } 
+    }
 
     &.transform {
         transform: translate(0%);
@@ -142,35 +144,34 @@
         list-style: none;
         @media only screen and (max-width: 700px) {
             height: 80%;
-        } 
+        }
     }
 
     &__link {
-
         &:link,
         &:visited {
             outline: none;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             padding: 0.5rem 2rem;
             margin: 0.5rem 1.5rem;
             text-decoration: none;
             background-color: $color-bg-light;
             // background-color: $color-grey-light;
-            transition: all .2s;
+            transition: all 0.2s;
 
             @media only screen and (max-width: 700px) {
                 padding: 1rem 2rem;
                 margin: 5% 1.5rem;
-            } 
+            }
         }
 
         &:hover {
             outline: none;
             background-color: $color-bg-light-dark;
             cursor: pointer;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0, .2);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
             // border: 1px solid $color-primary-light;
         }
     }
@@ -201,14 +202,14 @@
     }
 }
 
-
 .pagination {
     padding: 2rem 0;
     display: flex;
     justify-content: space-around;
 
     @media only screen and (max-width: 700px) {
-        padding: 0.8rem 0; } 
+        padding: 0.8rem 0;
+    }
 
     &__btn {
         outline: none;
@@ -219,20 +220,24 @@
         padding: 0.5rem 1rem;
         font-size: 1.5rem;
         border-radius: 2px;
-        background-image: linear-gradient(90deg, lighten(#7BE495, 5%) ,lighten(#329D9C, 10%));
+        background-image: linear-gradient(
+            90deg,
+            lighten(#7be495, 5%),
+            lighten(#329d9c, 10%)
+        );
         // background-image: linear-gradient(90deg,#7BE495, #329D9C);
-        transition: all .2s;
+        transition: all 0.2s;
 
         &:hover {
             transform: scale(1.1);
-            box-shadow: 0 1rem 2rem rgba($color-black, .2); /*X Y Blur color*/
+            box-shadow: 0 1rem 2rem rgba($color-black, 0.2); /*X Y Blur color*/
             // background-image: linear-gradient(270deg, $color-primary, $color-secondary);
-    
+
             &:active {
                 transform: scale(1);
-                box-shadow: 0 0.5rem 1rem rgba($color-black, .2); /*X Y Blur color*/
+                box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2); /*X Y Blur color*/
             }
-        } 
+        }
     }
 }
 
@@ -249,8 +254,8 @@
     padding: 1rem;
 
     @media only screen and (max-width: 700px) {
-        flex-direction: column;   
-    } 
+        flex-direction: column;
+    }
 }
 
 .music {
@@ -261,13 +266,13 @@
         display: flex;
     }
 
-    @media only screen and (max-width: 700px) { 
-        flex: 0 0 35%; 
-    } 
+    @media only screen and (max-width: 700px) {
+        flex: 0 0 35%;
+    }
 
     &__details {
-       padding: 1rem 1rem;
-       color: $color-grey-dark-2;
+        padding: 1rem 1rem;
+        color: $color-grey-dark-2;
     }
 
     &__fig {
@@ -316,7 +321,6 @@
         height: 3rem;
         width: 3rem;
     }
-
 }
 
 .lyrics {
@@ -326,7 +330,7 @@
     @media only screen and (max-width: 700px) {
         margin-top: 1rem;
         padding-bottom: 12em;
-    } 
+    }
 
     &__heading {
         font-size: 2rem;
@@ -344,7 +348,7 @@
         background-color: $color-white;
         height: 35rem;
         width: 100%;
-        box-shadow: 0 0.5rem 1rem rgba($color-black, .2);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
         overflow: scroll;
     }
 }
@@ -362,7 +366,11 @@
     justify-content: flex-end;
 
     &__popup {
-        background-image: linear-gradient(90deg, lighten(#7BE495, 0%) ,lighten(#329D9C, 5%));
+        background-image: linear-gradient(
+            90deg,
+            lighten(#7be495, 0%),
+            lighten(#329d9c, 5%)
+        );
         border-radius: 5rem 5rem 0 0;
         padding: 0.5rem 7rem;
         padding-left: 20rem;
@@ -372,12 +380,12 @@
         width: calc(100% - 4rem);
         opacity: 0;
         transform: translateY(0%);
-        transition: all .3s ease-in;
+        transition: all 0.3s ease-in;
         z-index: 0;
-        @media only screen and (max-width: 700px) { 
+        @media only screen and (max-width: 700px) {
             padding-left: 14rem;
             padding-right: 4.5rem;
-         }
+        }
     }
 
     &__progress-container {
@@ -398,29 +406,33 @@
         transition: width 0.1s linear;
     }
 
-
     &__box {
         border-radius: 1rem 1rem 0 0;
         width: 100%;
         height: 56%;
-        background-image: linear-gradient(90deg, lighten(#7BE495, 5%) ,lighten(#329D9C, 10%));
+        background-image: linear-gradient(
+            90deg,
+            lighten(#7be495, 5%),
+            lighten(#329d9c, 10%)
+        );
         display: flex;
         padding: 1rem;
         position: relative;
 
-        @media only screen and (max-width: 700px) { 
+        @media only screen and (max-width: 700px) {
             height: 60%;
-          } 
+        }
     }
 
-    &__img-container{
+    &__img-container {
         position: relative;
+        // top: -90%;
         width: 11rem;
         height: 11rem;
 
-        @media only screen and (max-width: 700px) { 
-           top: -90%;
-         } 
+        @media only screen and (max-width: 700px) {
+            top: -90%;
+        }
 
         img {
             border-radius: 50%;
@@ -435,16 +447,16 @@
 
             animation-play-state: paused;
 
-            @media only screen and (max-width: 700px) { 
-               left: 0.5rem;
-               top: -1rem;
-            } 
+            @media only screen and (max-width: 700px) {
+                left: 0.5rem;
+                top: -1rem;
+            }
         }
     }
 
     &__box.play &__img-container img {
         animation-play-state: running;
-    } 
+    }
 
     &__box.play &__popup {
         opacity: 1;
@@ -459,10 +471,10 @@
         align-items: center;
         padding-right: 20rem;
 
-        @media only screen and (max-width: 700px) { 
+        @media only screen and (max-width: 700px) {
             margin-left: 3rem;
             padding-right: 0rem;
-          }
+        }
     }
 
     &__details {
@@ -484,9 +496,9 @@
         justify-content: space-between;
         align-items: center;
 
-        @media only screen and (max-width: 700px) { 
+        @media only screen and (max-width: 700px) {
             flex: 0 0 40%;
-          }
+        }
     }
 
     &__btn {
@@ -517,5 +529,3 @@
         transform: rotate(360deg);
     }
 }
-
-
