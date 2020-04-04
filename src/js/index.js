@@ -1,6 +1,6 @@
 import Search from './models/Search';
 import * as searchView from './views/searchView';
-import { elements } from './views/base';
+import { elements, renderLoader, clearLoader } from './views/base';
 import '../scss/main.scss';
 
 // Global State
@@ -21,12 +21,21 @@ const controlSearch = async () => {
 
     // 3) Create UI for search result
     searchView.clearInput();
+    searchView.clearResults();
+    renderLoader(elements.searchRes);
 
     // 4) Search for recipies
-    await state.search.getResults();
+    try {
+        await state.search.getResults();
+        clearLoader();
 
-    // 5) Render results on UI
-    searchView.renderResults(state.search.result);
+        // 5) Render results on UI
+        searchView.renderResults(state.search.result);
+
+    } catch (error) {
+        alert('Error With getting Music Result');
+        clearLoader();
+    }
 };
 
 elements.searchForm.addEventListener('submit', e => {
