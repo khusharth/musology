@@ -282,14 +282,14 @@
 
         img {
             height: 100%;
-            width: 100%;
+            // width: 100%;
         }
     }
 
     &__title {
         color: $color-secondary;
         font-weight: 600;
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     &__artist {

@@ -13,7 +13,7 @@ export const clearResults = () => {
 const renderMusic = music => {
     const markup = `
     <li>
-        <a class="results__link" href="${music.id}">
+        <a class="results__link" href="#${music.id}">
             <figure class="results__fig">
                 <img src="${music.album.cover_small}" alt="${music.title_short}" />
             </figure>

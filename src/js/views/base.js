@@ -2,10 +2,11 @@ export const elements = {
     searchForm: document.querySelector('.search'),
     searchInput: document.querySelector('.search__input'),
     searchRes: document.querySelector('.results'),
-    searchResList: document.querySelector('.results__list')
+    searchResList: document.querySelector('.results__list'),
+    music: document.querySelector('.music'),
 };
 
-export const renderLoader = parent => {
+export const renderLoader = (parent) => {
     const loader = `
     <div class="loader">
         <div class="line line1"></div>
@@ -24,4 +25,3 @@ export const clearLoader = () => {
     // If loader present then clear it
     if (loader) loader.parentElement.removeChild(loader);
 };
-

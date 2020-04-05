@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-export default class Search {
-    constructor(query) {
-        this.query = query;
+export default class Music {
+    constructor(id) {
+        this.id = id;
     }
 
-    async getResults() {
+    async getMusic() {
         const host = 'deezerdevs-deezer.p.rapidapi.com';
         const key = process.env.API_KEY;
+
         try {
-            // wait for response
             const res = await axios(
-                `https://deezerdevs-deezer.p.rapidapi.com/search?q=${this.query}`,
+                `https://deezerdevs-deezer.p.rapidapi.com/track/${this.id}`,
                 {
                     method: 'GET',
                     headers: {
@@ -20,8 +20,9 @@ export default class Search {
                     },
                 }
             );
-            this.result = res.data.data;
-            console.log(this.result);
+
+            this.data = res.data;
+            console.log(this.data);
         } catch (error) {
             alert(error);
         }
