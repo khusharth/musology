@@ -168,6 +168,13 @@
             }
         }
 
+        &--active {
+            outline: none;
+            background-color: $color-bg-light-dark !important;
+            // background-color: black;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+        }
+
         &:hover {
             outline: none;
             background-color: $color-bg-light-dark;
@@ -183,7 +190,7 @@
 
         img {
             height: 100%;
-            width: 100%;
+            // width: 100%;
         }
     }
 
@@ -213,6 +220,8 @@
     }
 
     &__btn {
+        display: flex;
+        align-items: center;
         outline: none;
         border: none;
         text-decoration: none;
@@ -229,6 +238,10 @@
         // background-image: linear-gradient(90deg,#7BE495, #329D9C);
         transition: all 0.2s;
 
+        &--left {
+            flex-direction: row-reverse;
+        }
+
         &:hover {
             transform: scale(1.1);
             box-shadow: 0 1rem 2rem rgba($color-black, 0.2); /*X Y Blur color*/
@@ -239,6 +252,12 @@
                 box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2); /*X Y Blur color*/
             }
         }
+    }
+
+    & &__icon {
+        height: 1.4rem;
+        width: 1.4rem;
+        fill: $color-white;
     }
 }
 

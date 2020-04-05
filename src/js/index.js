@@ -46,6 +46,18 @@ elements.searchForm.addEventListener('submit', (e) => {
     controlSearch();
 });
 
+elements.pagination.addEventListener('click', (e) => {
+    // Closest finds the closest element which has pagination__btn class
+    const btn = e.target.closest('.pagination__btn');
+    if (btn) {
+        // dataset.goto to access data-goto attribute
+        const goToPage = parseInt(btn.dataset.goto, 10);
+        // Clear previous buttons before calling new
+        searchView.clearResults();
+        searchView.renderResults(state.search.result, goToPage);
+    }
+});
+
 // Music Controller
 const controlMusic = async () => {
     // 1) Get the id
@@ -57,7 +69,9 @@ const controlMusic = async () => {
         renderLoader(elements.music);
 
         // 3) Highlight selected search item
-
+        if (state.search) {
+            searchView.highlightSelected(id);
+        }
         // 4) Create New music object and add it to state
         state.music = new Music(id);
 
