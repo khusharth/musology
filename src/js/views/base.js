@@ -5,6 +5,7 @@ export const elements = {
     searchResList: document.querySelector('.results__list'),
     pagination: document.querySelector('.pagination'),
     music: document.querySelector('.music'),
+    lyricsCard: document.querySelector('.lyrics__card'),
 };
 
 export const renderLoader = (parent) => {

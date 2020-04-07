@@ -1,7 +1,9 @@
 import Search from './models/Search';
 import Music from './models/Music';
+import Lyrics from './models/Lyrics';
 import * as searchView from './views/searchView';
 import * as musicView from './views/musicView';
+import * as lyricsView from './views/lyricsView';
 import { elements, renderLoader, clearLoader } from './views/base';
 import '../scss/main.scss';
 
@@ -66,7 +68,9 @@ const controlMusic = async () => {
     if (id) {
         // 2) Render Loader
         musicView.clearMusic();
+        lyricsView.clearLyrics();
         renderLoader(elements.music);
+        renderLoader(elements.lyricsCard);
 
         // 3) Highlight selected search item
         if (state.search) {
@@ -82,6 +86,22 @@ const controlMusic = async () => {
             clearLoader();
             // 6) Render Music Data
             musicView.renderMusic(state.music.data);
+        } catch (error) {
+            alert(error);
+            clearLoader();
+        }
+
+        state.lyrics = new Lyrics(
+            state.music.data.artist.name,
+            state.music.data.title_short
+        );
+
+        try {
+            await state.lyrics.getLyrics();
+            lyricsView.clearLyrics();
+            clearLoader();
+
+            lyricsView.renderLyrics(state.lyrics.data);
         } catch (error) {
             alert(error);
             clearLoader();

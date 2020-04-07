@@ -111,6 +111,7 @@
 .content {
     margin-top: 0.2rem;
     height: 100%;
+    width: 100%;
     display: flex;
     position: relative;
 
@@ -361,6 +362,7 @@
     }
 
     &__card {
+        width: 100%;
         margin-top: 0.5rem;
         padding: 2rem;
         border-radius: 0.5rem;
