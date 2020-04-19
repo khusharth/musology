@@ -1,6 +1,8 @@
 import { elements } from './base';
 
+// Display Music data
 export const renderMusic = (music) => {
+    // Convert from seconds to minutes:seconds
     const min = Math.floor(music.duration / 60);
     let sec = music.duration - min * 60;
     if (sec < 10) {
@@ -34,4 +36,81 @@ export const renderMusic = (music) => {
 
 export const clearMusic = () => {
     elements.music.innerHTML = '';
+};
+
+// Add data to audio section
+export const updateAudio = (music) => {
+    elements.audio.src = `${music.preview}`;
+    elements.audioImg.src = `${music.album.cover_medium}`;
+    elements.audioTitle.innerText = `${music.title_short}`;
+    elements.audioArtist.innerText = `${music.artist.name}`;
+};
+
+export const playSong = async () => {
+    // 1) If no audio
+    if (elements.audio.src === '') {
+        // Nothing happens
+    } else {
+        console.log('Audio ' + elements.audio.src);
+
+        // 2) Change the button SVG
+        elements.audioPlay.style.display = 'none';
+        elements.audioPause.style.display = 'block';
+
+        try {
+            // 3) Wait for audio to Load
+            await elements.audio.play();
+            elements.audioBox.classList.add('play');
+            console.log('Playing...');
+        } catch (error) {
+            console.log('Failed to play...' + error);
+        }
+    }
+};
+
+export const pauseSong = () => {
+    elements.audioBox.classList.remove('play');
+    elements.audioPlay.style.display = 'block';
+    elements.audioPause.style.display = 'none';
+
+    elements.audio.pause();
+};
+
+export const prevSong = (index) => {
+    let musicIndex = index - 1;
+
+    if (musicIndex < 0) {
+        musicIndex = 0;
+    }
+    if (musicIndex === 6 || musicIndex === 13 || musicIndex === 20) {
+        document.querySelector('.pagination__btn--left').click();
+    }
+    return musicIndex;
+};
+
+export const nextSong = (index) => {
+    let musicIndex = index + 1;
+
+    if (musicIndex > 24) {
+        musicIndex = 24;
+    }
+
+    if (musicIndex % 7 === 0) {
+        document.querySelector('.pagination__btn--right').click();
+    }
+
+    return musicIndex;
+};
+
+export const updateProgress = (event) => {
+    const { duration, currentTime } = event.srcElement;
+    const progressPercent = (currentTime / duration) * 100;
+    elements.audioProgress.style.width = `${progressPercent}%`;
+};
+
+export const setProgress = (event) => {
+    const width = elements.audioProgressCont.clientWidth;
+    const clickX = event.offsetX;
+    const duration = audio.duration;
+    audio.currentTime = (clickX / width) * duration;
 };

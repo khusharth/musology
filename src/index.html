@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="icon" type="image/png" href="img/favicon.png" />
-        <title>Musology</title>
-    </head>
-    <body>
-        <div class="container">
-            <header class="header">
-                <img src="img/Logo.png" alt="Logo" class="header__logo" />
 
-                <form class="search">
-                    <input
-                        type="text"
-                        class="search__input"
-                        placeholder="Search over 56,000,000 tracks..."
-                    />
-                    <button class="btn btn_search">
-                        <svg class="search__icon">
-                            <use
-                                xlink:href="img/sprite.svg#icon-magnifying-glass"
-                            ></use>
-                        </svg>
-                    </button>
-                </form>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <title>Musology</title>
+</head>
 
-                <div class="likes">
-                    <button class="btn likes__btn">
-                        <svg class="search__icon">
-                            <use xlink:href="img/sprite.svg#icon-heart"></use>
-                        </svg>
-                        <span>Likes</span>
-                    </button>
-                    <!-- <div class="likes__field">
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="img/Logo.png" alt="Logo" class="header__logo" />
+
+            <form class="search">
+                <input type="text" class="search__input" placeholder="Search over 56,000,000 tracks..." />
+                <button class="btn btn__search">
+                    <svg class="search__icon">
+                        <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="likes">
+                <button class="btn likes__btn">
+                    <svg class="search__icon">
+                        <use xlink:href="img/sprite.svg#icon-heart"></use>
+                    </svg>
+                    <span>Likes</span>
+                </button>
+                <!-- <div class="likes__field">
                     <svg class="likes__icon">
                         <use href="img/icons.svg#icon-heart"></use>
                     </svg>
@@ -59,13 +52,13 @@
                         
                     </ul>
                 </div> -->
-                </div>
-            </header>
+            </div>
+        </header>
 
-            <main class="content">
-                <div class="results">
-                    <ul class="results__list">
-                        <!-- 
+        <main class="content">
+            <div class="results">
+                <ul class="results__list">
+                    <!-- 
                     <li>
                         <a class="results__link results__link--active" href="#23456">
                             <figure class="results__fig">
@@ -149,10 +142,10 @@
                             </div>
                         </a>
                     </li> -->
-                    </ul>
+                </ul>
 
-                    <div class="pagination">
-                        <!-- <button class="pagination__btn pagination__btn--left">
+                <div class="pagination">
+                    <!-- <button class="pagination__btn pagination__btn--left">
                         <span>Page 1</span>
                         <svg class="pagination__icon">
                             <use href="img/sprite.svg#icon-left"></use>
@@ -164,13 +157,13 @@
                             <use href="img/sprite.svg#icon-right"></use>
                         </svg>
                     </button> -->
-                    </div>
                 </div>
+            </div>
 
-                <div class="music-container">
-                    <div class="music-box">
-                        <div class="music">
-                            <!-- <div class="music__data">
+            <div class="music-container">
+                <div class="music-box">
+                    <div class="music">
+                        <!-- <div class="music__data">
                             <figure class="music__fig">
                                 <img src="img/big.jpg" alt="ALBUM">
                             </figure>
@@ -190,71 +183,63 @@
                                 </button>
                             </div>
                         </div> -->
-                        </div>
-
-                        <div class="lyrics">
-                            <div class="lyrics__heading">Lyrics</div>
-                            <div class="lyrics__card">
-                                <!-- <div class="lyrics__data">
-
-                                </div> -->
-                            </div>
-                        </div>
                     </div>
 
-                    <div class="audio">
-                        <div class="audio__box">
-                            <div class="audio__popup">
-                                <div class="audio__progress-container">
-                                    <div class="audio__progress"></div>
-                                </div>
+                    <div class="lyrics">
+                        <div class="lyrics__heading">Lyrics</div>
+                        <div class="lyrics__card">
+                            <!-- <div class="lyrics__data">
+
+                                </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio">
+                    <div class="audio__box">
+                        <div class="audio__popup">
+                            <div class="audio__progress-container">
+                                <div class="audio__progress"></div>
                             </div>
+                        </div>
 
-                            <audio src="" id="audio"></audio>
+                        <audio id="audio"></audio>
 
-                            <div class="audio__img-container">
-                                <img
-                                    class="audio__img"
-                                    src="img/big.jpg"
-                                    alt="Audio Image"
-                                />
+                        <div class="audio__img-container">
+                            <img class="audio__img" src="img/cd.png" alt="Audio Image" />
+                        </div>
+
+                        <div class="audio__container">
+                            <div class="audio__details">
+                                <div class="audio__title">Song</div>
+                                <div class="audio__artist">Artist</div>
                             </div>
-
-                            <div class="audio__container">
-                                <div class="audio__details">
-                                    <div class="audio__title">Sick boy</div>
-                                    <div class="audio__artist">
-                                        The chainsmokers
-                                    </div>
-                                </div>
-                                <div class="audio__nav">
-                                    <button class="btn audio__btn">
-                                        <svg class="audio__svg audio__prev">
-                                            <use
-                                                xlink:href="img/sprite.svg#icon-controller-jump-to-start"
-                                            ></use>
-                                        </svg>
-                                    </button>
-                                    <button class="btn audio__btn">
-                                        <svg class="audio__svg audio__play">
-                                            <use
-                                                xlink:href="img/sprite.svg#icon-controller-play"
-                                            ></use>
-                                        </svg>
-                                    </button>
-                                    <button class="btn audio__btn">
-                                        <svg class="audio__svg audio__next">
-                                            <use
-                                                xlink:href="img/sprite.svg#icon-controller-next"
-                                            ></use>
-                                        </svg>
-                                    </button>
-                                </div>
+                            <div class="audio__nav">
+                                <button class="btn audio__btn audio__btn--prev">
+                                    <svg class="audio__svg audio__prev">
+                                        <use xlink:href="img/sprite.svg#icon-controller-jump-to-start"></use>
+                                    </svg>
+                                </button>
+                                <button class="btn audio__btn audio__btn--play">
+                                    <svg class="audio__svg audio__play">
+                                        <use xlink:href="img/sprite.svg#icon-controller-play"></use>
+                                    </svg>
+                                    <svg class="audio__svg audio__pause">
+                                        <use xlink:href="img/sprite.svg#icon-controller-paus"></use>
+                                    </svg>
+                                </button>
+                                <button class="btn audio__btn audio__btn--next">
+                                    <svg class="audio__svg audio__next">
+                                        <use xlink:href="img/sprite.svg#icon-controller-next"></use>
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
-    </body>
+            </div>
+        </main>
+    </div>
+</body>
+
 </html>

@@ -1,11 +1,24 @@
 export const elements = {
     searchForm: document.querySelector('.search'),
     searchInput: document.querySelector('.search__input'),
+    searchBtn: document.querySelector('.btn__search'),
     searchRes: document.querySelector('.results'),
     searchResList: document.querySelector('.results__list'),
     pagination: document.querySelector('.pagination'),
     music: document.querySelector('.music'),
     lyricsCard: document.querySelector('.lyrics__card'),
+    audio: document.getElementById('audio'),
+    audioBox: document.querySelector('.audio__box'),
+    audioImg: document.querySelector('.audio__img'),
+    audioTitle: document.querySelector('.audio__title'),
+    audioArtist: document.querySelector('.audio__artist'),
+    audioPrevBtn: document.querySelector('.audio__btn--prev'),
+    audioPlayBtn: document.querySelector('.audio__btn--play'),
+    audioNextBtn: document.querySelector('.audio__btn--next'),
+    audioPlay: document.querySelector('.audio__play'),
+    audioPause: document.querySelector('.audio__pause'),
+    audioProgress: document.querySelector('.audio__progress'),
+    audioProgressCont: document.querySelector('.audio__progress-container'),
 };
 
 export const renderLoader = (parent) => {

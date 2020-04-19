@@ -11,10 +11,10 @@ export default class Lyrics {
         const apiUrl = 'https://api.lyrics.ovh/v1/';
         try {
             const lyrics = await axios(`${apiUrl}/${this.artist}/${this.song}`);
-            console.log(lyrics);
+            // console.log(lyrics);
             if (lyrics.request.status === 200) {
                 this.data = lyrics.data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
-                console.log(this.data);
+                // console.log(this.data);
             } else {
                 this.data = 'Not Found';
                 console.log('Lyrics were not found');
