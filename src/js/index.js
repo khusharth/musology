@@ -1,9 +1,11 @@
 import Search from './models/Search';
 import Music from './models/Music';
 import Lyrics from './models/Lyrics';
+import Likes from './models/Like';
 import * as searchView from './views/searchView';
 import * as musicView from './views/musicView';
 import * as lyricsView from './views/lyricsView';
+import * as likesView from './views/likesView';
 import { elements, renderLoader, clearLoader } from './views/base';
 import '../scss/main.scss';
 
@@ -13,7 +15,6 @@ import '../scss/main.scss';
 // -> lyrics object
 // -> Liked music
 const state = {};
-window.state = state;
 
 // ------ SEARCH CONTROLLER ------ //
 const controlSearch = async () => {
@@ -89,6 +90,16 @@ elements.searchRes.addEventListener('click', (event) => {
     }
 });
 
+// Restore liked music on page reload
+window.addEventListener('load', () => {
+    state.likes = new Likes();
+
+    // Restore likes
+    state.likes.readStorage();
+
+    // Render the existing likes
+    state.likes.likes.forEach(like => likesView.renderLike(like));
+})
 
 // ------ MUSIC CONTROLLER ------ //
 const controlMusic = async () => {
@@ -102,17 +113,19 @@ const controlMusic = async () => {
         renderLoader(elements.music);
         renderLoader(elements.lyricsCard);
 
+        let index;
         // 3) Highlight selected search item and pause current song if any
         if (state.search) {
             searchView.highlightSelected(id);
             musicView.pauseSong();
+
+            // Find index of current selected music
+            index = state.search.result.findIndex((el) => {
+                return el.id == id;
+            });
         }
         // 4) Create New music object and add it to state
         state.music = new Music(id);
-
-        const index = state.search.result.findIndex((el) => {
-            return el.id == id;
-        });
 
         state.music.index = index;
 
@@ -123,7 +136,10 @@ const controlMusic = async () => {
             // 6) Render Music and Audio Data
             musicView.clearMusic();
             clearLoader();
-            musicView.renderMusic(state.music.data);
+            musicView.renderMusic(
+                state.music.data,
+                state.likes.isLiked(id)
+            );
             musicView.updateAudio(state.music.data);
         } catch (error) {
             alert(error);
@@ -161,6 +177,47 @@ const controlLyrics = async () => {
 };
 
 window.addEventListener('hashchange', controlMusic);
+// window.addEventListener('load', controlMusic);
+
+
+const controlLike = () => {
+    // If we dont have a like object we first create it
+    if (!state.likes) state.likes = new Likes();
+    const currentID = state.music.id;
+    console.log(currentID);
+    console.log(state.likes.isLiked(currentID));
+    // User has not liked yet
+    if (!state.likes.isLiked(currentID)) {
+
+        // Add like to the state
+        const newLike = state.likes.addLike(state.music.data);
+
+        // Toggle the like button
+        likesView.toggleLikeBtn(true);
+
+        // Add like to UI list
+        likesView.renderLike(newLike);
+
+        // User has liked 
+    } else {
+
+        // Remove like from state
+        state.likes.deleteLike(currentID);
+
+        // Toggle the like button
+        likesView.toggleLikeBtn(false);
+
+        // Remove like from UI list
+        likesView.deleteLike(currentID)
+    }
+
+}
+
+elements.music.addEventListener('click', event => {
+    if (event.target.matches('.music__btn, .music__btn *')) {
+        controlLike();
+    }
+})
 
 
 // Play|Pause Audio on clicking play button

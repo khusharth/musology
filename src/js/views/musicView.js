@@ -1,7 +1,7 @@
 import { elements } from './base';
 
 // Display Music data
-export const renderMusic = (music) => {
+export const renderMusic = (music, isLiked) => {
     // Convert from seconds to minutes:seconds
     const min = Math.floor(music.duration / 60);
     let sec = music.duration - min * 60;
@@ -25,7 +25,7 @@ export const renderMusic = (music) => {
         <div class="music__like">
             <button class="btn music__btn">
                 <svg class="music__heart">
-                    <use xlink:href="img/sprite.svg#icon-heart-outlined"></use>
+                    <use xlink:href="img/sprite.svg#icon-heart${isLiked ? '' : '-outlined'}"></use>
                 </svg>
             </button>
         </div>

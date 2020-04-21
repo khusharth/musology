@@ -17,15 +17,17 @@ export const highlightSelected = (id) => {
         el.classList.remove('results__link--active');
     });
 
-    document
-        .querySelector(`.results__link[href*="${id}"]`)
-        .classList.add('results__link--active');
+    // Only highlight if element is present on page | incase of likes might not be present
+    if (document.querySelector(`.results__link[href*="${id}"]`)) {
+        document.querySelector(`.results__link[href*="${id}"]`).classList.add('results__link--active');
+    }
+
 };
 
 const createButton = (page, type) => `
     <button class="pagination__btn pagination__btn--${type}" data-goto=${
     type === 'left' ? page - 1 : page + 1
-}>
+    }>
         <span>Page ${type === 'left' ? page - 1 : page + 1}</span>
         <svg class="pagination__icon">
             <use href="img/sprite.svg#icon-${type}"></use>

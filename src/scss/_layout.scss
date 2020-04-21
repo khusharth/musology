@@ -91,6 +91,8 @@
 
 .likes {
     display: flex;
+    position: relative;
+    // flex-direction: column;
 
     @media only screen and (max-width: 700px) {
         justify-content: flex-end;
@@ -105,6 +107,37 @@
         span {
             margin-left: 0.5rem;
         }
+    }
+
+    &__icon {
+        fill: $color-white;
+        height: 1.8em;
+        width: 1.8em;
+    }
+
+    &__panel:hover,
+    &__btn:hover + &__panel {
+        visibility: visible;
+        opacity: 1; 
+    }
+
+    &:hover &__btn {
+        transform: scale(1.1);
+        box-shadow: 0 1rem 2rem rgba($color-black, .2); /*X Y Blur color*/
+    }
+
+    &__panel {
+        position: absolute;
+        right: -4rem;
+        top: 8rem;
+        z-index: 10;
+        padding: 2rem 0;
+        width: 34rem;
+        background-color: #fff;
+        box-shadow: 0 0.8rem 5rem 2rem rgba(101, 90, 86, 0.1);
+        visibility: hidden;
+        opacity: 0;
+        transition: all .5s; 
     }
 }
 
@@ -121,7 +154,6 @@
 }
 
 .results {
-    // mi-height: 100%;
     position: relative;
     flex: 0 0 25%;
     background-color: #fff;
@@ -141,7 +173,10 @@
             transform: translate(0%);
         }
     }
-
+}
+.results,
+.likes {
+    // mi-height: 100%;
     
 
     &__list {
@@ -193,6 +228,7 @@
 
         img {
             height: 100%;
+            border-radius: 2px;
             // width: 100%;
         }
     }
@@ -304,6 +340,7 @@
 
         img {
             height: 100%;
+            border-radius: 2px;
             // width: 100%;
         }
     }
