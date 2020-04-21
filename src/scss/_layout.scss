@@ -1,6 +1,7 @@
 .container {
     max-width: 140rem;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +29,7 @@
 
 .header {
     font-size: 1.6rem;
-    min-height: 12vh;
+    min-height: 14vh;
     width: 100%;
     padding: 4.5rem 6rem;
     height: 8rem;
@@ -46,7 +47,7 @@
         flex-wrap: wrap;
         align-content: center;
         height: 14rem;
-        padding: 4.5rem 3rem;
+        padding: 8rem 3rem;
     }
 }
 
@@ -99,6 +100,10 @@
         flex: 0 0 50%;
     }
 
+    @media only screen and (max-width: 325px) {
+        flex: 0 0 30%;
+    }
+
     &__btn {
         display: flex;
         align-items: center;
@@ -129,7 +134,7 @@
     &__panel {
         position: absolute;
         right: -4rem;
-        top: 8rem;
+        top: 6rem;
         z-index: 10;
         padding: 2rem 0;
         width: 34rem;
@@ -149,11 +154,13 @@
     position: relative;
 
     @media only screen and (max-width: 700px) {
-        // height: 80vh;
+        min-height: 90vh;
     }
 }
 
 .results {
+    display: flex;
+    flex-direction: column;
     position: relative;
     flex: 0 0 25%;
     background-color: #fff;
@@ -182,7 +189,7 @@
     &__list {
         list-style: none;
         @media only screen and (max-width: 700px) {
-            height: 80%;
+            // height: 80%;
         }
     }
 
@@ -202,7 +209,7 @@
 
             @media only screen and (max-width: 700px) {
                 padding: 1rem 2rem;
-                margin: 5% 1.5rem;
+                margin: 3% 1.5rem;
             }
         }
 
@@ -301,14 +308,19 @@
 }
 
 .music-container {
+    // height: 100%;
     flex-grow: 1;
     background-color: $color-bg-light;
     position: relative;
     display: flex;
     flex-direction: column;
+    @media only screen and (max-width: 700px) {
+        padding-bottom: 35%;
+    }
 }
 
 .music-box {
+    height: 100%;
     display: flex;
     padding: 1rem;
 
@@ -318,8 +330,9 @@
 }
 
 .music {
+    height: 100%;
     flex: 0 0 50%;
-    padding: 0rem 1rem;
+    padding: 1rem 1rem;
 
     &__data {
         display: flex;
@@ -388,8 +401,7 @@
     padding: 1rem;
 
     @media only screen and (max-width: 700px) {
-        margin-top: 1rem;
-        padding-bottom: 12em;
+        margin-top: 2rem;
     }
 
     &__heading {
@@ -398,6 +410,10 @@
         text-align: center;
         font-weight: 600;
         color: $color-secondary;
+
+        @media only screen and (max-width: 700px) {
+            font-size: 3rem;
+        }
     }
 
     &__card {
