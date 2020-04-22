@@ -21,9 +21,9 @@ export default class Search {
                 }
             );
             this.result = res.data.data;
-            console.log(this.result);
+            //console.log(this.result);
         } catch (error) {
-            alert(error);
+            console.log(error);
         }
     }
 }

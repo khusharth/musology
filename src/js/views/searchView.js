@@ -81,13 +81,22 @@ export const renderResults = (music, pages = 1, resPerPage = 7) => {
         music.slice(start, end).forEach(renderMusic);
 
         renderButtons(pages, music.length, resPerPage);
+
     } else {
         const markup = `
-        <li>
-           <h2 class="text-center">Sorry! Looks like we dont have the music you are looking for :(<h2>
+        <li class="error">
+           <h2 class="error__message">Sorry! Looks like we dont have the music you are looking for :( <br> Please try another :)<h2>
         </li>
         `;
         elements.searchResList.insertAdjacentHTML('beforeend', markup);
+
+        setTimeout(() => {
+            const isShown = elements.searchRes.classList.contains('transform');
+
+            if (isShown) {
+                elements.searchRes.classList.remove('transform');
+            }
+        }, 6000);
     }
 
 };

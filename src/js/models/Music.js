@@ -22,9 +22,9 @@ export default class Music {
             );
 
             this.data = res.data;
-            console.log(this.data);
+            //console.log(this.data);
         } catch (error) {
-            alert(error);
+            console.log(error);
         }
     }
 }

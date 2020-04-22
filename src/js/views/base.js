@@ -3,6 +3,7 @@ export const elements = {
     searchInput: document.querySelector('.search__input'),
     searchBtn: document.querySelector('.btn__search'),
     likesList: document.querySelector('.likes__list'),
+    noLike: document.querySelector('.no-like'),
     searchRes: document.querySelector('.results'),
     searchResList: document.querySelector('.results__list'),
     pagination: document.querySelector('.pagination'),

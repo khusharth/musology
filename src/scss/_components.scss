@@ -95,6 +95,23 @@
     }
 }
 
-.text-center {
-    text-align: center;
+// ------ Error Message ------ //
+.error {
+    margin-top: 5rem;
+    padding: 2rem;
+    font-size: 1rem;
+
+    &__message {
+        text-align: center;
+    }
+}
+
+.no-like {
+    // margin-top: 5rem;
+    // padding: 2rem;
+    font-size: 1rem;
+
+    &__message {
+        text-align: center;
+    }
 }

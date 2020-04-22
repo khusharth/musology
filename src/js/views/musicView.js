@@ -47,21 +47,20 @@ export const updateAudio = (music) => {
 };
 
 export const playSong = async () => {
-    // 1) If no audio
+    // If no audio
     if (elements.audio.src === '') {
         // Nothing happens
     } else {
-        console.log('Audio ' + elements.audio.src);
 
-        // 2) Change the button SVG
+        // Change the button SVG
         elements.audioPlay.style.display = 'none';
         elements.audioPause.style.display = 'block';
 
         try {
-            // 3) Wait for audio to Load
+            // Wait for audio to Load
             await elements.audio.play();
             elements.audioBox.classList.add('play');
-            console.log('Playing...');
+
         } catch (error) {
             console.log('Failed to play...' + error);
         }

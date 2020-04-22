@@ -40,7 +40,7 @@ const controlSearch = async () => {
             // 5) Render results on UI
             searchView.renderResults(state.search.result);
         } catch (error) {
-            alert('Error With getting Music Result');
+            console.log('Error With getting Music Result');
             clearLoader();
         }
     }
@@ -68,10 +68,7 @@ elements.searchBtn.addEventListener('click', () => {
     const isShown = elements.searchRes.classList.contains('transform');
 
     if (!isShown) {
-        console.log('trans');
         elements.searchRes.classList.add('transform');
-    } else {
-        console.log('Already has transform');
     }
 
 });
@@ -84,10 +81,7 @@ elements.searchRes.addEventListener('click', (event) => {
         const isShown = elements.searchRes.classList.contains('transform');
 
         if (isShown) {
-            console.log('trans removed');
             elements.searchRes.classList.remove('transform');
-        } else {
-            console.log("transform not Present")
         }
     }
 });
@@ -144,7 +138,7 @@ const controlMusic = async () => {
             );
             musicView.updateAudio(state.music.data);
         } catch (error) {
-            alert(error);
+            console.log(error);
             clearLoader();
         }
 
@@ -158,22 +152,22 @@ const controlMusic = async () => {
 
 // ------ Lyrics CONTROLLER ------ //
 const controlLyrics = async () => {
-    // 1) Create New Lyrics object and add it to state
+    // Create New Lyrics object and add it to state
     state.lyrics = new Lyrics(
         state.music.data.artist.name,
         state.music.data.title_short
     );
 
     try {
-        // 2) Get the Lyrics data =
+        // Get the Lyrics data =
         await state.lyrics.getLyrics();
 
-        // 3) Render Lyrics data
+        // Render Lyrics data
         lyricsView.clearLyrics();
         clearLoader();
         lyricsView.renderLyrics(state.lyrics.data);
     } catch (error) {
-        alert(error);
+        console.log(error);
         clearLoader();
     }
 };
@@ -185,9 +179,9 @@ window.addEventListener('hashchange', controlMusic);
 const controlLike = () => {
     // If we dont have a like object we first create it
     if (!state.likes) state.likes = new Likes();
+
     const currentID = state.music.id;
-    console.log(currentID);
-    console.log(state.likes.isLiked(currentID));
+
     // User has not liked yet
     if (!state.likes.isLiked(currentID)) {
 
@@ -211,6 +205,13 @@ const controlLike = () => {
 
         // Remove like from UI list
         likesView.deleteLike(currentID)
+    }
+
+    // If no likes then display message
+    if (state.likes.getNumLikes() === 0) {
+        elements.noLike.style.display = "block";
+    } else {
+        elements.noLike.style.display = "none";
     }
 
 }

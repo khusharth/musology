@@ -5,11 +5,20 @@ export const clearLyrics = () => {
 };
 
 export const renderLyrics = (lyrics) => {
-    const markup = `
-    <div class="lyrics__data">
-        ${lyrics}
-    </div>
-    `;
+    if (lyrics !== 'Not Found' && lyrics !== 'error') {
+        const markup = `
+        <div class="lyrics__data">
+            ${lyrics}
+        </div>
+        `;
+        elements.lyricsCard.insertAdjacentHTML('afterbegin', markup);
+    } else {
+        const markup = `
+        <div class="lyrics__data error">
+           <h2 class="error__message">Sorry! Looks like we dont have the lyrics you are looking for :( <br> Please try another song :)<h2>
+        </div>
+        `;
+        elements.lyricsCard.insertAdjacentHTML('afterbegin', markup);
+    }
 
-    elements.lyricsCard.insertAdjacentHTML('afterbegin', markup);
 };
