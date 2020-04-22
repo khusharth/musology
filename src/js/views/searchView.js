@@ -74,10 +74,20 @@ const renderMusic = (music) => {
 
 export const renderResults = (music, pages = 1, resPerPage = 7) => {
     // Render 7 results to current page
-    const start = (pages - 1) * resPerPage;
-    const end = pages * resPerPage;
+    if (music.length !== 0) {
+        const start = (pages - 1) * resPerPage;
+        const end = pages * resPerPage;
 
-    music.slice(start, end).forEach(renderMusic);
+        music.slice(start, end).forEach(renderMusic);
 
-    renderButtons(pages, music.length, resPerPage);
+        renderButtons(pages, music.length, resPerPage);
+    } else {
+        const markup = `
+        <li>
+           <h2 class="text-center">Sorry! Looks like we dont have the music you are looking for :(<h2>
+        </li>
+        `;
+        elements.searchResList.insertAdjacentHTML('beforeend', markup);
+    }
+
 };

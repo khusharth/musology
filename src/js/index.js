@@ -8,6 +8,8 @@ import * as lyricsView from './views/lyricsView';
 import * as likesView from './views/likesView';
 import { elements, renderLoader, clearLoader } from './views/base';
 import '../scss/main.scss';
+import '../img/favicon.png';
+import '../img/sprite.svg';
 
 // Global State
 // -> Search object
