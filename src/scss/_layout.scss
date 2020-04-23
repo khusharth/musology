@@ -433,7 +433,6 @@
 .audio {
     height: 14rem;
     width: 100%;
-    // background-color: #000;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -441,6 +440,10 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
+    @media only screen and (max-width: 700px) {
+        position: fixed;
+    }
 
     &__popup {
         background-image: linear-gradient(

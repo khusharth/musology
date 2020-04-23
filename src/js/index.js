@@ -93,8 +93,12 @@ window.addEventListener('load', () => {
     // Restore likes
     state.likes.readStorage();
 
+    // If no likes then display message
+    likesView.checkLikes(state.likes.getNumLikes());
+
     // Render the existing likes
     state.likes.likes.forEach(like => likesView.renderLike(like));
+
 })
 
 // ------ MUSIC CONTROLLER ------ //
@@ -173,7 +177,7 @@ const controlLyrics = async () => {
 };
 
 window.addEventListener('hashchange', controlMusic);
-// window.addEventListener('load', controlMusic);
+window.addEventListener('load', controlMusic);
 
 
 const controlLike = () => {
@@ -208,11 +212,7 @@ const controlLike = () => {
     }
 
     // If no likes then display message
-    if (state.likes.getNumLikes() === 0) {
-        elements.noLike.style.display = "block";
-    } else {
-        elements.noLike.style.display = "none";
-    }
+    likesView.checkLikes(state.likes.getNumLikes());
 
 }
 

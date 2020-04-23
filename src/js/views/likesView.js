@@ -28,3 +28,13 @@ export const deleteLike = id => {
     // If present remove it
     if (el) el.parentElement.removeChild(el);
 };
+
+export const checkLikes = (likes) => {
+
+    // If no likes then display message
+    if (likes === 0) {
+        elements.noLike.style.display = "block";
+    } else {
+        elements.noLike.style.display = "none";
+    }
+};
