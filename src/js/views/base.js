@@ -8,6 +8,7 @@ export const elements = {
     searchResList: document.querySelector('.results__list'),
     pagination: document.querySelector('.pagination'),
     music: document.querySelector('.music'),
+    musicTitle: document.querySelector('.music__title'),
     lyricsCard: document.querySelector('.lyrics__card'),
     audio: document.getElementById('audio'),
     audioBox: document.querySelector('.audio__box'),

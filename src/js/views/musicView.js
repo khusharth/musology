@@ -1,5 +1,14 @@
 import { elements } from './base';
 
+const reduceFont = (title, limit = 35) => {
+    if (title.length > limit) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
 // Display Music data
 export const renderMusic = (music, isLiked) => {
     // Convert from seconds to minutes:seconds
@@ -15,7 +24,7 @@ export const renderMusic = (music, isLiked) => {
             <img src="${music.album.cover_medium}" alt="${music.title_short}">
         </figure>
         <div class="music__details">
-            <div class="music__title">${music.title_short}</div>
+            <div class="music__title ${reduceFont(music.title_short) ? 'music__title--small' : ''}">${music.title_short}</div>
             <div class="music__artist">${music.artist.name}</div>
         </div>
     </div>
@@ -113,3 +122,33 @@ export const setProgress = (event) => {
     const duration = audio.duration;
     audio.currentTime = (clickX / width) * duration;
 };
+
+// Animate Title on phone if its bigger than a limit
+export const animateTitle = (title, limit = 14) => {
+    const isAnimated = elements.audioTitle.classList.contains('audio__title--animate');
+
+    if (title.length > limit) {
+        if (!isAnimated) {
+            elements.audioTitle.classList.add('audio__title--animate');
+        }
+    } else {
+        if (isAnimated) {
+            elements.audioTitle.classList.remove('audio__title--animate');
+        }
+    }
+}
+
+// Animate Artist on phone if its bigger than a limit
+export const animateArtist = (artist, limit = 14) => {
+    const isAnimated = elements.audioArtist.classList.contains('audio__title--animate');
+
+    if (artist.length > limit) {
+        if (!isAnimated) {
+            elements.audioArtist.classList.add('audio__title--animate');
+        }
+    } else {
+        if (isAnimated) {
+            elements.audioArtist.classList.remove('audio__title--animate');
+        }
+    }
+}

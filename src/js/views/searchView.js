@@ -55,15 +55,30 @@ const renderButtons = (page, totalResults, resPerPage) => {
     elements.pagination.insertAdjacentHTML('afterbegin', button);
 };
 
+const limitMusicTitle = (title, limit = 18) => {
+    const newTitle = [];
+    if (title.length > limit) {
+        title.split(' ').reduce((acc, curr) => {
+            if (acc + curr.length <= limit) {
+                newTitle.push(curr);
+            }
+            return acc + curr.length;
+        }, 0);
+
+        return `${newTitle.join(' ')} ...`;
+    }
+    return title;
+}
+
 const renderMusic = (music) => {
     const markup = `
     <li>
         <a class="results__link" href="#${music.id}">
             <figure class="results__fig">
-                <img src="${music.album.cover_small}" alt="${music.title_short}" />
+                <img src="${music.album.cover_small}" alt="${limitMusicTitle(music.title_short)}" />
             </figure>
             <div class="results__data">
-                <h4 class="results__title">${music.title_short}</h4>
+                <h4 class="results__title">${limitMusicTitle(music.title_short)}</h4>
                 <p class="results__author">${music.artist.name}</p>
             </div>
         </a>
@@ -100,3 +115,4 @@ export const renderResults = (music, pages = 1, resPerPage = 7) => {
     }
 
 };
+

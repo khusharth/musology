@@ -140,6 +140,9 @@ const controlMusic = async () => {
                 state.music.data,
                 state.likes.isLiked(id)
             );
+            // musicView.reduceFont(state.music.data.title_short);
+            musicView.animateTitle(state.music.data.title_short);
+            musicView.animateArtist(state.music.data.artist.name);
             musicView.updateAudio(state.music.data);
         } catch (error) {
             console.log(error);
