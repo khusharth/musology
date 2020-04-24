@@ -2,7 +2,8 @@
     <img src="./src/img/Logo.png" alt="Musology">
     <br>
     <br>
-    <img src="https://img.shields.io/badge/find-music-brightgreenstyle=flat" alt="music"> <img src="https://img.shields.io/badge/find-lyrics-green?style=flat" alt="lyrics"> <img src="https://img.shields.io/badge/listen-music-yellowgreen?style=flat" alt="listen"> 
+    <img src="https://img.shields.io/badge/find-music-brightgreenstyle=flat" alt="music"> <img src="https://img.shields.io/badge/find-lyrics-green?style=flat" alt="lyrics"> <img src="https://img.shields.io/badge/listen-music-yellowgreen?style=flat" alt="listen"> <a href="https://app.netlify.com/sites/musology/deploys"><img src="https://api.netlify.com/api/v1/badges/c5149ced-8138-493d-9ec2-ae72f4cde641/deploy-status" alt="Netlify Status"></a>
+
 </p>
 
 A web application where you can search for music, listen to a preview of it and also find its lyrics. You can also like songs which will be saved in your browser.
@@ -46,6 +47,7 @@ A web application where you can search for music, listen to a preview of it and 
     API_KEY = yourApiKey
     ```
     Replace yourApiKey with your own Deezer **X-RapidAPI-Key** .
+
     > Get your Deezer X-RapidAPI-Key from [here](https://rapidapi.com/deezerdevs/api/deezer-1).
 4. To start the development server run:
     ```
