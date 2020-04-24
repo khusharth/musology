@@ -32,7 +32,7 @@ const controlSearch = async () => {
         searchView.clearResults();
         renderLoader(elements.searchRes);
 
-        // 4) Search for recipies
+        // 4) Search for Music
         try {
             await state.search.getResults();
             clearLoader();
@@ -43,6 +43,28 @@ const controlSearch = async () => {
             console.log('Error With getting Music Result');
             clearLoader();
         }
+    }
+};
+
+const defaultSearch = async () => {
+    // Create new Search obj and add it to state
+    state.search = new Search('');
+
+    // Create UI for search result
+    searchView.clearInput();
+    searchView.clearResults();
+    renderLoader(elements.searchRes);
+
+    // Search for Music
+    try {
+        await state.search.getPlaylist();
+        clearLoader();
+
+        // Render results on UI
+        searchView.renderResults(state.search.result);
+    } catch (error) {
+        console.log('Error With getting Music Result');
+        clearLoader();
     }
 };
 
@@ -88,6 +110,9 @@ elements.searchRes.addEventListener('click', (event) => {
 
 // Restore liked music on page reload
 window.addEventListener('load', () => {
+    const id = window.location.hash;
+
+    if (!id) { defaultSearch(); };
     state.likes = new Likes();
 
     // Restore likes
@@ -99,7 +124,8 @@ window.addEventListener('load', () => {
     // Render the existing likes
     state.likes.likes.forEach(like => likesView.renderLike(like));
 
-})
+});
+
 
 // ------ MUSIC CONTROLLER ------ //
 const controlMusic = async () => {
@@ -154,6 +180,8 @@ const controlMusic = async () => {
 
         // 8) Play the song
         musicView.playSong();
+    } else {
+
     }
 };
 
